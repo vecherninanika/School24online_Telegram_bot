@@ -16,7 +16,7 @@ info = {
 const { Telegraf, Markup } = require('telegraf')
 
 
-const token = '6624689864:AAHQj49qRPlyAb0tPCy_u7OxcxeamyPyMM8'
+const token = 'insert your token'
 const bot = new Telegraf(token)
 
 bot.use(Telegraf.log())
@@ -68,19 +68,9 @@ bot.action('Испанский язык', (ctx, next) => {
     return ctx.replyWithHTML(info.prices.spanish).then(() => next())
 })
 
-bot.hears('❓ Задать вопрос администратору', (ctx) => {
-    return ctx.replyWithHTML('Напишите свое сообщение')  // TODO
-})
-
 
 bot.launch()
 
-// Enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
 
-
-// придумать, как в ценах сделать видным весь текст, а не Российская...
-// деплой
-
-// на сайте не работают О нас, Контакты. Все называется page2
